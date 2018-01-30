@@ -10,7 +10,7 @@
         "egulias/email-validator": "~1.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.0"
+        "phpunit/phpunit": "^6.5"
     },
     "config": {
         "bin-dir": "bin"
