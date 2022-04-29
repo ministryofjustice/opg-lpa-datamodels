@@ -12,14 +12,11 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 class AbstractAttorneyTest extends TestCase
 {
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Invalid JSON passed to constructor
-     */
     public function testFactoryNotJson()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid JSON passed to constructor');
         $data = 'Not JSON';
-
         AbstractAttorney::factory($data);
     }
 

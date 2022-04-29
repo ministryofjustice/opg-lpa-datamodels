@@ -14,12 +14,10 @@ class FormatterTest extends TestCase
         $this->assertEquals('A000 1234 5678', $formatted);
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage The passed value must be an integer.
-     */
     public function testIdString()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The passed value must be an integer');
         Formatter::id('27');
     }
 }
