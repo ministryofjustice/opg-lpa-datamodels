@@ -91,7 +91,7 @@ class AbstractDataTest extends TestCase
         $json = $user->toJson();
         $this->assertStringStartsWith('{', $json);
         $this->assertStringEndsWith('}', $json);
-        $this->assertContains('  ', $json);
+        $this->assertStringContainsString('  ', $json);
     }
 
     public function testToJsonNotPretty()
@@ -100,7 +100,7 @@ class AbstractDataTest extends TestCase
         $json = $user->toJson(false);
         $this->assertStringStartsWith('{', $json);
         $this->assertStringEndsWith('}', $json);
-        $this->assertNotContains('  ', $json);
+        $this->assertStringNotContainsString('  ', $json);
     }
 
     public function testFlatten()
