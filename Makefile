@@ -1,7 +1,8 @@
 .PHONY: test-local
 test-local:
-	@php ./bin/phpunit -c tests/phpunit.xml
+	@bash ./test_runner.sh
 
 .PHONY: test
 test:
-	@echo "TBD"
+	@docker build -f Dockerfile -t opg-lpa-datamodels-test-runner .; \
+	docker run -t opg-lpa-datamodels-test-runner
