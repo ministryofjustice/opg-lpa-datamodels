@@ -1,11 +1,10 @@
 # Lasting Power of Attorney Data Models
 
-The lasting power of attorney (LPA) data models are a set of PHP classes that we use to represent and validate a LPA document within our various systems.
-
+The lasting power of attorney (LPA) data models are a set of PHP classes that we use to represent and validate a LPA document within the Make an LPA service.
 
 ## Installation with Composer
 
-Add the following into your composer.json, then call `php composer.phar install`. 
+Add the following into your composer.json, then call `composer install`.
 
 ```json
 {
@@ -24,21 +23,21 @@ Add the following into your composer.json, then call `php composer.phar install`
 ## Validation
 
 The Data Models include validation method. [Validator errors responses are documented here](docs/validation.md).
- 
 
 ## Tests
 
+Run the test suite (using docker) with:
 
-#### Suite
+```
+make test
+```
 
-        bin/phpspec run --format=pretty -vvv --stop-on-failure
+Run the test suite (using your local PHP version) with:
 
-#### Single spec file
+```
+make test-local
+```
 
-        bin/phpspec run spec/Opg/Lpa/DataModel/Lpa/Elements/AddressSpec.php
-        
-License
--------
+## License
 
 The Lasting Power of Attorney Attorney API Service is released under the MIT license, a copy of which can be found in [LICENSE](LICENSE).
-        

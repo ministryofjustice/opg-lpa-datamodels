@@ -275,9 +275,9 @@ abstract class AbstractData implements AccessorInterface, JsonSerializable, Vali
     /**
      * Return the array to use whenever json_encode() is called on this instance.
      *
-     * @return array
+     * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->toArray();
     }

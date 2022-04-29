@@ -14,21 +14,17 @@ use PHPUnit\Framework\TestCase;
  */
 class AbstractDataTest extends TestCase
 {
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Invalid JSON passed to constructor
-     */
     public function testConstructorNullData()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid JSON passed to constructor');
         new User('<HTML></HTML>');
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Invalid argument passed to constructor
-     */
     public function testConstructorInvalidData()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid argument passed to constructor');
         new User(new \DateTime());
     }
 
@@ -38,22 +34,18 @@ class AbstractDataTest extends TestCase
         $this->assertFalse(isset($user->NullProperty));
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage NullProperty is not a valid property
-     */
     public function testGetInvalidProperty()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('NullProperty is not a valid property');
         $user = new User();
         $user->get('NullProperty');
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage NullProperty is not a valid property
-     */
     public function testSetInvalidProperty()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('NullProperty is not a valid property');
         $user = new User();
         $user->set('NullProperty', null);
     }
@@ -99,7 +91,7 @@ class AbstractDataTest extends TestCase
         $json = $user->toJson();
         $this->assertStringStartsWith('{', $json);
         $this->assertStringEndsWith('}', $json);
-        $this->assertContains('  ', $json);
+        $this->assertStringContainsString('  ', $json);
     }
 
     public function testToJsonNotPretty()
@@ -108,7 +100,7 @@ class AbstractDataTest extends TestCase
         $json = $user->toJson(false);
         $this->assertStringStartsWith('{', $json);
         $this->assertStringEndsWith('}', $json);
-        $this->assertNotContains('  ', $json);
+        $this->assertStringNotContainsString('  ', $json);
     }
 
     public function testFlatten()
