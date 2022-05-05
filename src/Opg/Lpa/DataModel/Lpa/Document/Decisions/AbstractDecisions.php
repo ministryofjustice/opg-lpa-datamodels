@@ -66,7 +66,7 @@ abstract class AbstractDecisions extends AbstractData
     }
 
     /**
-     * @param string $how
+     * @param string|null $how
      * @return $this
      */
     public function setHow($how): AbstractDecisions
@@ -85,7 +85,7 @@ abstract class AbstractDecisions extends AbstractData
     }
 
     /**
-     * @param string $when
+     * @param string|null $when
      * @return $this
      */
     public function setWhen($when): AbstractDecisions
@@ -104,7 +104,7 @@ abstract class AbstractDecisions extends AbstractData
     }
 
     /**
-     * @param string $howDetails
+     * @param string|null $howDetails
      * @return $this
      */
     public function setHowDetails($howDetails): AbstractDecisions

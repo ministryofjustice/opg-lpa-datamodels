@@ -51,7 +51,7 @@ class ReplacementAttorneyDecisions extends AbstractDecisions
     }
 
     /**
-     * @param string $whenDetails
+     * @param string|null $whenDetails
      * @return $this
      */
     public function setWhenDetails($whenDetails): ReplacementAttorneyDecisions
