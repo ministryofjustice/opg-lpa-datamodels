@@ -191,9 +191,9 @@ class User extends AbstractData
     }
 
     /**
-     * @return Name
+     * @return Name|null
      */
-    public function getName(): Name
+    public function getName(): Name|null
     {
         return $this->name;
     }
