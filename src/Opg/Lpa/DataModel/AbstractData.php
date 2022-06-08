@@ -277,7 +277,7 @@ abstract class AbstractData implements AccessorInterface, JsonSerializable, Vali
      *
      * @return mixed
      */
-    public function jsonSerialize(): mixed
+    public function jsonSerialize() : mixed
     {
         return $this->toArray();
     }
