@@ -26,11 +26,16 @@ class Formatter
     /**
      * Formats either a set of passed instructions or preferences, ready to be output into the PDF.
      *
-     * @param string $text The text to be formatted
+     * @param string|null $text The text to be formatted
      * @return string
      */
-    public static function flattenInstructionsOrPreferences(string $text) : string
+    public static function flattenInstructionsOrPreferences(?string $text) : string
     {
+        /* Early return as null is permitted */
+        if (is_null($text)) {
+            return '';
+        }
+
         $content = '';
 
         foreach (explode("\r\n", trim($text)) as $contentLine) {
