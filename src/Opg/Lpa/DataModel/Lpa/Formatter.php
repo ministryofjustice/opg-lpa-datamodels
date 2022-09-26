@@ -53,12 +53,7 @@ class Formatter
                 unset($paragraphs[$i]);
             } else {
                 // calculate how many space chars to be appended to replace the new line in this paragraph.
-                if (strlen($paragraphs[$i]) % self::INSTRUCTIONS_PREFERENCES_ROW_WIDTH) {
-                    $noOfSpaces = self::INSTRUCTIONS_PREFERENCES_ROW_WIDTH - strlen($paragraphs[$i]) % self::INSTRUCTIONS_PREFERENCES_ROW_WIDTH;
-                    if ($noOfSpaces > 0) {
-                        $paragraphs[$i] .= str_repeat(" ", $noOfSpaces);
-                    }
-                }
+                $paragraphs[$i] .= str_repeat(" ", self::INSTRUCTIONS_PREFERENCES_ROW_WIDTH - strlen($paragraphs[$i]));
             }
         }
 
