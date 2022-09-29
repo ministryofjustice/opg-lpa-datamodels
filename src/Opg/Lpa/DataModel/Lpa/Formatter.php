@@ -39,7 +39,7 @@ class Formatter
         $content = '';
 
         foreach (explode("\r\n", trim($text)) as $contentLine) {
-            $content .= wordwrap($contentLine, SELF::INSTRUCTIONS_PREFERENCES_ROW_WIDTH, "\r\n", false);
+            $content .= wordwrap($contentLine, self::INSTRUCTIONS_PREFERENCES_ROW_WIDTH, "\r\n", false);
             $content .= "\r\n";
         }
 
@@ -49,15 +49,11 @@ class Formatter
             $paragraphs[$i] = trim($paragraphs[$i]);
 
             if (strlen($paragraphs[$i]) == 0) {
+                // ignore empty paragraphs
                 unset($paragraphs[$i]);
             } else {
                 // calculate how many space chars to be appended to replace the new line in this paragraph.
-                if (strlen($paragraphs[$i]) % SELF::INSTRUCTIONS_PREFERENCES_ROW_WIDTH) {
-                    $noOfSpaces = SELF::INSTRUCTIONS_PREFERENCES_ROW_WIDTH - strlen($paragraphs[$i]) % SELF::INSTRUCTIONS_PREFERENCES_ROW_WIDTH;
-                    if ($noOfSpaces > 0) {
-                        $paragraphs[$i] .= str_repeat(" ", $noOfSpaces);
-                    }
-                }
+                $paragraphs[$i] .= str_repeat(" ", self::INSTRUCTIONS_PREFERENCES_ROW_WIDTH - strlen($paragraphs[$i]));
             }
         }
 
