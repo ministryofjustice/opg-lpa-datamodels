@@ -16,13 +16,11 @@ class TrustCorporation extends AbstractAttorney
     /**
      * Field length constants
      */
-    const NAME_MIN_LENGTH = 1;
-    const NAME_MAX_LENGTH = 75;//40;
-    const NUMBER_MIN_LENGTH = 1;
-    const NUMBER_MAX_LENGTH = 75;//40;
+    const NAME_MAX_LENGTH = 75;
+    const NUMBER_MAX_LENGTH = 75;
 
     /**
-     * @var string The company name,
+     * @var string The company name.
      */
     protected $name;
 
@@ -39,7 +37,6 @@ class TrustCorporation extends AbstractAttorney
                 'type' => 'string'
             ]),
             new Assert\Length([
-                'min' => self::NAME_MIN_LENGTH,
                 'max' => self::NAME_MAX_LENGTH,
             ]),
         ]);
@@ -50,7 +47,6 @@ class TrustCorporation extends AbstractAttorney
                 'type' => 'string'
             ]),
             new Assert\Length([
-                'min' => self::NUMBER_MIN_LENGTH,
                 'max' => self::NUMBER_MAX_LENGTH,
             ]),
         ]);
